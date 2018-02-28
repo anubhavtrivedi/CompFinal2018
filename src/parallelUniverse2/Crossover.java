@@ -4,7 +4,7 @@ package parallelUniverse2;
 //random one point cross over
 public class Crossover {
 	public static char[] crossOver(char[] parent1, char[] parent2,int problemCode) {
-		System.out.println("crossover");
+	//	System.out.println("crossover");
 		int repetion=ChromosomeRules.checkRepetion(problemCode);
 		/*
 		 * 0 for noRepetionCrossOver 

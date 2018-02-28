@@ -10,7 +10,7 @@ import java.util.ArrayList;
  */
 public class Mutation {
 	public static char[] mutate(char[] chromo,ArrayList<Character> setOfValues,int problemCode) {
-		System.out.println("mutation");
+		//
 		int mutationType=ChromosomeRules.checkMutation(problemCode);
 		if(mutationType==1)
 			return mutateNoRepetionNoChromoRule(chromo,setOfValues);
@@ -19,7 +19,7 @@ public class Mutation {
 	}
 	
 	public static char[] mutateNoRepetionNoChromoRule(char[] chromo,ArrayList<Character> setOfValues) {
-		System.out.println("mutation");
+	//	System.out.println("mutation");
 		int noOfMutation = (int) (chromo.length / 10);
 		int mutationPoint,index;
 		char search;

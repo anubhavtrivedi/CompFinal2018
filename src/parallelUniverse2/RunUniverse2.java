@@ -6,26 +6,29 @@ public class RunUniverse2 {
 	static char[] currentBest;
 	static int solutionCost;
 	static int[] fitnessVal;
-	public static char[] runUniverse(char[][] generation,int[] fitnessVal,int populationSize ,int chromoLength,ArrayList listOfValues,int problemCode ) {
+	public static char[] runUniverse(char[][] generation,int[] fitnessVal,int populationSize ,int chromoLength,ArrayList<Character> listOfValues,int problemCode ) {
 	
 		System.out.println("rununiverse");
-		for(int i=0;i<11;i++) {
+		for(int i=0;i<2;i++) {
+			System.out.println("run         "+i);
 			generation=NextGeneration.getNextGeneration(generation, fitnessVal, populationSize,chromoLength,listOfValues,problemCode);
 			currentBest=NextGeneration.getGenerationBest();
 			solutionCost=ChromosomeRules.getFitness(problemCode, currentBest);
 			/*
 			 * printing progress for every 50 generation
 			 */
-			if(i%50==0) {
-				for(int x:fitnessVal) {
-					System.out.println(x);
-				}
-				System.out.println(currentBest.toString()+"  "+solutionCost);
-			}
+			
 			
 			
 		}
 		return currentBest;
+	}
+	public static String print(char[] chromo) {
+		String s="";
+		for(char c:chromo) {
+			s+=c;
+		}
+		return s;
 	}
 	
 }

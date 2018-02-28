@@ -3,28 +3,33 @@ package parallelUniverse2;
 //selecting best 50% of population and return only 50% of the population
 public class Selection {
 	public static  char[][] selectParents(char[][] generation,int[] fitness,int populationSize,int chromoLength){
-		System.out.println("selection");
+		//System.out.println("selection");
 		sort(fitness, 0, fitness.length-1,generation,chromoLength);
+for(int j=0;j<populationSize;j++) {
+			
+			System.out.println(RunUniverse2.print(generation[j])+"  "+ChromosomeRules.getFitness(1, generation[j]));
+		}
 		int totalFitness=0;
 		for(int fit:fitness) {
 			totalFitness+=fit;
 		}
+
 		/*
 		 * creating intermediate generation for probalistic selection based on each genes performance/fitness
 		 */
-		char[][] intermediateGeneration=generation;
+		char[][] intermediateGeneration=new char[populationSize][chromoLength];
 		int counter=0,flag=0;
-		while(counter<populationSize-4) {
+		while(counter<populationSize-5) {
 			
-		intermediateGeneration[counter]=generation[counter];
-		intermediateGeneration[counter+1]=generation[counter];
-		intermediateGeneration[counter+2]=generation[counter];
-		intermediateGeneration[counter+3]=generation[counter];
-		counter+=3;
+		intermediateGeneration[counter]=generation[flag];
+		intermediateGeneration[counter+1]=generation[flag];
+		intermediateGeneration[counter+2]=generation[flag];
+		intermediateGeneration[counter+3]=generation[flag];
+		counter+=4;
+		flag++;
 		}
-		
 
-		
+
 	return intermediateGeneration;
 	}
 	
@@ -56,7 +61,7 @@ public class Selection {
 	        int k = l;
 	        while (i < n1 && j < n2)
 	        {
-	            if (L[i] >= R[j])
+	            if (L[i] <= R[j])
 	            {
 	                arr[k] = L[i];
 	                i++;

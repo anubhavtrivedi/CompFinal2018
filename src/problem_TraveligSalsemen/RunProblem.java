@@ -1,7 +1,7 @@
 package problem_TraveligSalsemen;
 
 import parallelUniverse2.RunUniverse2;
-import parallelUniverse2.RunUniverse2;
+
 
 public class RunProblem {
 	static char[] currentBest;

@@ -6,12 +6,13 @@ public class NextGeneration {
 	public static char[] generationBest;
 
 	public static char[][] getNextGeneration(char[][] generation, int[] fitness, int populationSize, int chromoLength,
-			ArrayList listOfValues, int problemCode) {
-		System.out.println("nextGeneration");
+			ArrayList<Character> listOfValues, int problemCode) {
+		//System.out.println("nextGeneration");
 		/*
 		 * selecting the parents to produce off spring
 		 */
 		char[][] intermediateGeneration = Selection.selectParents(generation, fitness, populationSize, chromoLength);
+		
 		/*
 		 * best Gene of this generation
 		 */
@@ -26,9 +27,7 @@ public class NextGeneration {
 		 * mutating 10% of population
 		 */
 
-		for(int i=0;i<populationSize;i++) {
-			System.out.println(i+" "+nextGeneration[i]);
-		}
+
 		
 		
 		
