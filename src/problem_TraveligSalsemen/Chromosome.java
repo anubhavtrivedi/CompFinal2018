@@ -15,6 +15,8 @@ public class Chromosome {
 		val.add('7');
 		val.add('8');
 		val.add('9');
+		val.add('x');
+		val.add('y');
 		return val;
 	}
 }

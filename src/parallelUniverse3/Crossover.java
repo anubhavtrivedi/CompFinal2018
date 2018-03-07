@@ -1,7 +1,5 @@
 package parallelUniverse3;
 
-
-
 //random one point cross over
 public class Crossover {
 	public static char[] crossOver(char[] parent1, char[] parent2, int problemCode) {
@@ -33,43 +31,67 @@ public class Crossover {
 	 */
 
 	public static char[] noRepetionNoChromoRuleCrossOver(char[] parent1, char[] parent2, int problemCode) {
-		
+
 		int crossOverPoint = parent1.length / 2, temp, counter = 0;
-		//System.out.println(RunUniverse3.print(parent1)+"   dfg   "+RunUniverse3.print(parent2));
+		// System.out.println(RunUniverse3.print(parent1)+" dfg
+		// "+RunUniverse3.print(parent2));
 		char[] ch;
 		int[] check = new int[parent1.length];
 
 		for (int i = 0; i < parent1.length; i++) {
 			if (i < crossOverPoint) {
-				temp = Integer.parseInt("" + parent1[i]);
-				check[temp]=1;
+				if (parent1[i] == 'x')
+					temp = 10;
+				else if (parent1[i] == 'y')
+					temp = 11;
+				else
+					temp = Integer.parseInt("" + parent1[i]);
+				check[temp] = 1;
 				continue;
 			}
-			
-			temp = Integer.parseInt("" + parent2[i]);
+			if (parent2[i] == 'x')
+				temp = 10;
+			else if (parent2[i] == 'y')
+				temp = 11;
+			else
+				temp = Integer.parseInt("" + parent2[i]);
 			if (check[temp] != 0) {
 				counter = 0;
 				for (int x : check) {
 					if (x == 0) {
+						if(counter==10) {
+							parent1[i] ='x';
+							check[counter] = 1;
+							break;
+						}
+						if(counter==11) {
+							parent1[i] ='y';
+							check[counter] = 1;
+							break;
+						}
 						ch = ("" + counter).toCharArray();
 						parent1[i] = ch[0];
-						check[counter]=1;
+						check[counter] = 1;
 						break;
 					}
 					counter++;
 				}
-			}
-			else {
-				parent1[i]=parent2[i];
-				temp = Integer.parseInt("" + parent2[i]);
-				check[temp]=1;
+			} else {
+				parent1[i] = parent2[i];
+				if (parent2[i] == 'x')
+					temp = 10;
+				else if (parent2[i] == 'y')
+					temp = 11;
+				else
+					temp = Integer.parseInt("" + parent2[i]);
+				check[temp] = 1;
 			}
 
 		}
 		// problem specific
-		if(problemCode==1)
-		parent1[10]=(""+0).charAt(0);
-		//System.out.println(RunUniverse3.print(parent1));
+		if (problemCode == 1)
+			parent1[12] = ("" + 0).charAt(0);
+		// System.out.println(RunUniverse3.print(parent1));
 		return parent1;
 
 	}
