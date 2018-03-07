@@ -4,7 +4,7 @@ public class FirstGeneration {
 	public static int populationSize = 150;
 
 	public static char[][] getFirstGeneration() {
-		System.out.println("firstGeneration");
+		//System.out.println("firstGeneration");
 		char[][] firstGeneration = new char[populationSize][11];
 		int[] status = new int[10];
 		int val;
