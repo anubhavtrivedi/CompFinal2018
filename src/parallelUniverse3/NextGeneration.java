@@ -10,13 +10,13 @@ public class NextGeneration {
 		//System.out.println("nextGeneration");
 		
 		
-		int noOfMutation = (int) (populationSize / 10);
-		int mutationPoint;
-		while (noOfMutation > 0) {
-			mutationPoint = (int) ((Math.random() * 10000) % populationSize);
-			generation[mutationPoint] = Mutation.mutate(generation[mutationPoint], listOfValues, problemCode);
-			noOfMutation--;
-		}
+//		int noOfMutation = (int) (populationSize / 10);
+//		int mutationPoint;
+//		while (noOfMutation > 0) {
+//			mutationPoint = (int) ((Math.random() * 10000) % populationSize);
+//			generation[mutationPoint] = Mutation.mutate(generation[mutationPoint], listOfValues, problemCode);
+//			noOfMutation--;
+//		}
 		/*
 		 * selecting the parents to produce off spring
 		 */

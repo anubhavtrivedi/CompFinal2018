@@ -14,6 +14,7 @@ public class FirstGeneration {
 			//System.out.println(i);
 			firstGeneration[i][0] = '0';
 			firstGeneration[i][10] = '0';
+			status[0] = 1;
 			for (int j = 1; j < 10; j++) {
 				while (true) {
 					
@@ -23,11 +24,12 @@ public class FirstGeneration {
 						status[val] = 1;
 						temp = "" + val;
 						firstGeneration[i][j] = temp.charAt(0);
-						status = new int[10];
+						
 						break;
 					}
 				}
 			}
+			status = new int[10];
 		}
 		return firstGeneration;
 	}

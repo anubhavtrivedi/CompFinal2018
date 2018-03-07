@@ -8,7 +8,7 @@ public class Problem1Rules {
 		 * 1 for replication allowed
 		 * 2 for noRepetionNoChromoRuleCrossOver
 		 */
-		return 1;
+		return 2;
 	}
 
 	public static int checkMutation() {
