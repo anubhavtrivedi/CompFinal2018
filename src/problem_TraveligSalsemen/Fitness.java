@@ -11,7 +11,7 @@ public class Fitness {
 		return cost;
 	}
 	public static int[] getFitness(char[][] population) {
-		System.out.println("fitness");
+	
 		int[] fitness=new int[FirstGeneration.populationSize];
 		for (int i = 0; i < FirstGeneration.populationSize; i++) {
 			fitness[i]=calculateFitness(population[i]);

@@ -9,8 +9,8 @@ public class RunUniverse2 {
 	public static char[] runUniverse(char[][] generation,int[] fitnessVal,int populationSize ,int chromoLength,ArrayList<Character> listOfValues,int problemCode ) {
 	
 		System.out.println("rununiverse");
-		for(int i=0;i<2;i++) {
-			System.out.println("run         "+i);
+		for(int i=0;i<1;i++) {
+			//System.out.println("run         "+i);
 			generation=NextGeneration.getNextGeneration(generation, fitnessVal, populationSize,chromoLength,listOfValues,problemCode);
 			currentBest=NextGeneration.getGenerationBest();
 			solutionCost=ChromosomeRules.getFitness(problemCode, currentBest);
