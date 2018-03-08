@@ -1,6 +1,6 @@
 package parallelUniverse3;
 
-import parallelUniverse1.RunUniverse;
+
 
 //selecting best 50% of population and return only 50% of the population
 public class Selection {
