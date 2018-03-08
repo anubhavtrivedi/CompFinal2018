@@ -8,6 +8,15 @@ public class NextGeneration {
 	public static char[][] getNextGeneration(char[][] generation, int[] fitness, int populationSize, int chromoLength,
 			ArrayList<Character> listOfValues, int problemCode) {
 		//System.out.println("nextGeneration");
+		
+		
+		int noOfMutation = (int) (populationSize / 10);
+		int mutationPoint;
+		while (noOfMutation > 0) {
+			mutationPoint = (int) ((Math.random() * 10000) % populationSize);
+			generation[mutationPoint] = Mutation.mutate(generation[mutationPoint], listOfValues, problemCode);
+			noOfMutation--;
+		}
 		/*
 		 * selecting the parents to produce off spring
 		 */
@@ -23,25 +32,14 @@ public class NextGeneration {
 		 */
 		char[][] nextGeneration = Crossover.getCrossOver(generation, intermediateGeneration, populationSize,
 				problemCode);
-		/*
-		 * mutating 10% of population
-		 */
-
-
+		
+		
+	
 		
 		
 		
 		
 		
-		
-		
-		int noOfMutation = (int) (populationSize / 10);
-		int mutationPoint;
-		while (noOfMutation > 0) {
-			mutationPoint = (int) ((Math.random() * 10000) % populationSize);
-			nextGeneration[mutationPoint] = Mutation.mutate(nextGeneration[mutationPoint], listOfValues, problemCode);
-			noOfMutation--;
-		}
 		/*
 		 * returning the new generation of the population
 		 */

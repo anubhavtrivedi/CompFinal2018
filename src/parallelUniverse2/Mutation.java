@@ -19,7 +19,7 @@ public class Mutation {
 	}
 	
 	public static char[] mutateNoRepetionNoChromoRule(char[] chromo,ArrayList<Character> setOfValues) {
-	//	System.out.println("mutation");
+		//System.out.println("mutation");
 		int noOfMutation = (int) (chromo.length / 10);
 		int mutationPoint,index;
 		char search;
