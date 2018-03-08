@@ -5,18 +5,19 @@ import java.util.ArrayList;
 import problem_TraveligSalsemen.Fitness;
 
 public class RunUniverse2 {
-	static ArrayList<String> archive=new ArrayList<>();
-	static char[] currentBest;
-	static int solutionCost=99999999;
-	static int[] fitnessVal;
-	static int localOptimal;
+	
 	public static char[] runUniverse(char[][] generation, int[] fitnessVal, int populationSize, int chromoLength,
 			ArrayList<Character> listOfValues, int problemCode) {
+		 ArrayList<String> archive=new ArrayList<>();
+		 char[] currentBest=null;
+		 int solutionCost=99999999;
+		int solutionGeneration=0;
+		 int localOptimal=0;
 		System.out.println(RunUniverse2.print(generation[3]));
 		String[] split;
 		int val=99999999;
 		System.out.println("rununiverse");
-		for (int i = 0; i < 20000; i++) {
+		for (int i = 0; i < 1000; i++) {
 			// System.out.println("run "+i);
 
 			generation = NextGeneration.getNextGeneration(generation, fitnessVal, populationSize, chromoLength,
@@ -28,7 +29,7 @@ public class RunUniverse2 {
 			solutionCost = fitnessVal[0];
 			}
 			else if(localOptimal>5) {
-				archive.add(new String(currentBest)+" "+solutionCost);
+				archive.add(new String(currentBest)+" "+solutionCost+" "+i);
 				generation=ChromosomeRules.getNewFirstGeneration(problemCode);
 				fitnessVal = ChromosomeRules.getPopulationFitness(problemCode, generation);
 				continue;
@@ -50,15 +51,15 @@ public class RunUniverse2 {
 		for(String c:archive) {
 			g++;
 			 split=c.split(" ");
-			 if(g<10)
-			 System.out.println(c);
+	
 			 if(val>Integer.parseInt(split[1])) {
 				 val=Integer.parseInt(split[1]);
 				 currentBest=split[0].toCharArray();
+				 solutionGeneration=Integer.parseInt(split[2]);
 			 }
 		}
 		
-		
+		System.out.println(print(currentBest)+"  "+Fitness.calculateFitness(currentBest)+" generation : "+solutionGeneration);
 		return currentBest;
 	}
 

@@ -22,7 +22,7 @@ public class RunProblem {
 		 * calculating fitness of the current generation
 		 */
 		fitnessVal=Fitness.getFitness(firstGeneration);
-		 solution=RunUniverse3.runUniverse(firstGeneration, fitnessVal, FirstGeneration.populationSize, PathGraph.chromoLength, Chromosome.listofAllValues(),1);
+		 solution=RunUniverse2.runUniverse(firstGeneration, fitnessVal, FirstGeneration.populationSize, PathGraph.chromoLength, Chromosome.listofAllValues(),1);
 		 archive.add(new String(solution)+" "+Fitness.calculateFitness(solution));
 		
 		}	

@@ -26,71 +26,77 @@ public class Crossover {
 		return null;
 	}
 
-	/*
-	 * keeping the first half fixed, adjusting the later for no repletion.
-	 */
+
 
 	public static char[] noRepetionNoChromoRuleCrossOver(char[] parent1, char[] parent2, int problemCode) {
-
+		/*
+		 *  keeping the second half fixed, adjusting the first for no repletion.
+		 */
+		
 		int crossOverPoint = parent1.length / 2, temp, counter = 0;
 		// System.out.println(RunUniverse3.print(parent1)+" dfg
 		// "+RunUniverse3.print(parent2));
 		char[] ch;
 		int[] check = new int[parent1.length];
-
-		for (int i = 0; i < parent1.length; i++) {
-			if (i < crossOverPoint) {
-				if (parent1[i] == 'x')
-					temp = 10;
-				else if (parent1[i] == 'y')
-					temp = 11;
-				else
-					temp = Integer.parseInt("" + parent1[i]);
-				check[temp] = 1;
-				continue;
-			}
-			if (parent2[i] == 'x')
-				temp = 10;
-			else if (parent2[i] == 'y')
-				temp = 11;
-			else
-				temp = Integer.parseInt("" + parent2[i]);
-			if (check[temp] != 0) {
-				counter = 0;
-				for (int x : check) {
-					if (x == 0) {
-						if(counter==10) {
-							parent1[i] ='x';
-							check[counter] = 1;
-							break;
-						}
-						if(counter==11) {
-							parent1[i] ='y';
-							check[counter] = 1;
-							break;
-						}
-						ch = ("" + counter).toCharArray();
-						parent1[i] = ch[0];
-						check[counter] = 1;
-						break;
-					}
-					counter++;
+		
+		 {
+			for (int i = parent1.length-1; i >=0; i--) {
+				if (i > crossOverPoint) {
+					if (parent1[i] == 'x')
+						temp = 10;
+					else if (parent1[i] == 'y')
+						temp = 11;
+					else
+						temp = Integer.parseInt("" + parent1[i]);
+					check[temp] = 1;
+					continue;
 				}
-			} else {
-				parent1[i] = parent2[i];
 				if (parent2[i] == 'x')
 					temp = 10;
 				else if (parent2[i] == 'y')
 					temp = 11;
 				else
 					temp = Integer.parseInt("" + parent2[i]);
-				check[temp] = 1;
-			}
+				if (check[temp] != 0) {
+					counter = 0;
+					for (int x : check) {
+						if (x == 0) {
+							if(counter==10) {
+								parent1[i] ='x';
+								check[counter] = 1;
+								break;
+							}
+							if(counter==11) {
+								parent1[i] ='y';
+								check[counter] = 1;
+								break;
+							}
+							ch = ("" + counter).toCharArray();
+							parent1[i] = ch[0];
+							check[counter] = 1;
+							break;
+						}
+						counter++;
+					}
+				} else {
+					parent1[i] = parent2[i];
+					if (parent2[i] == 'x')
+						temp = 10;
+					else if (parent2[i] == 'y')
+						temp = 11;
+					else
+						temp = Integer.parseInt("" + parent2[i]);
+					check[temp] = 1;
+				}
 
+			}
+			
 		}
 		// problem specific
-		if (problemCode == 1)
+		if (problemCode == 1) {
 			parent1[12] = ("" + 0).charAt(0);
+			parent1[0] = ("" + 0).charAt(0);
+		}
 		// System.out.println(RunUniverse3.print(parent1));
 		return parent1;
 

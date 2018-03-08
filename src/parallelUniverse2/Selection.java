@@ -4,7 +4,7 @@ package parallelUniverse2;
 
 //selecting best 50% of population and return only 50% of the population
 public class Selection {
-	public static  char[][] selectParents(char[][] generation,int[] fitness,int populationSize,int chromoLength){
+	public static  char[][] selectParents(char[][] generation,int[] fitness,int populationSize,int chromoLength,int problemCode){
 	//	System.out.println("selection universe 3");
 		generation=sort(fitness,generation,chromoLength);
 		
@@ -18,15 +18,25 @@ public class Selection {
 		
 		
 		int temp=0,counter=0;
-		char[][] intermediateGeneration=new char[populationSize][chromoLength];
+		char[][] intermediateGeneration1=new char[populationSize][chromoLength];
 		while(temp<populationSize) {
-			intermediateGeneration[temp]=generation[counter];
+			intermediateGeneration1[temp]=generation[counter];
 			temp++;
-			intermediateGeneration[temp]=generation[counter];
+			intermediateGeneration1[temp]=generation[counter];
 			temp++;counter++;
 		}
-
+		char[][] intermediateGeneration=new char[populationSize][chromoLength];
+		temp=0;
 		
+		while(temp<populationSize) {
+			counter=(int)(Math.random()*1000)%populationSize;
+			intermediateGeneration[temp]=intermediateGeneration1[counter];
+			temp++;
+			
+		}
+		
+		fitness=ChromosomeRules.getPopulationFitness(problemCode, intermediateGeneration);
+		intermediateGeneration=sort(fitness,intermediateGeneration,chromoLength);
 
 	return intermediateGeneration;
 	}

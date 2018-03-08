@@ -20,7 +20,7 @@ public class NextGeneration {
 		/*
 		 * selecting the parents to produce off spring
 		 */
-		char[][] intermediateGeneration = Selection.selectParents(generation, fitness, populationSize, chromoLength);
+		char[][] intermediateGeneration = Selection.selectParents(generation, fitness, populationSize, chromoLength,problemCode);
 		
 		/*
 		 * best Gene of this generation
