@@ -2,7 +2,7 @@ package parallelUniverse2;
 
 import java.util.ArrayList;
 
-import problem_TraveligSalsemen.Fitness;
+import problem_TraveligSalsemen.Fitness1;
 
 public class RunUniverse2 {
 	
@@ -13,7 +13,7 @@ public class RunUniverse2 {
 		 int solutionCost=99999999;
 		int solutionGeneration=0;
 		 int localOptimal=0;
-		System.out.println(RunUniverse2.print(generation[3]));
+		//System.out.println(RunUniverse2.print(generation[3]));
 		String[] split;
 		int val=99999999;
 		System.out.println("rununiverse");
@@ -59,7 +59,7 @@ public class RunUniverse2 {
 			 }
 		}
 		
-		System.out.println(print(currentBest)+"  "+Fitness.calculateFitness(currentBest)+" generation : "+solutionGeneration);
+		System.out.println(print(currentBest)+"  "+Fitness1.calculateFitness(currentBest)+" generation : "+solutionGeneration);
 		return currentBest;
 	}
 

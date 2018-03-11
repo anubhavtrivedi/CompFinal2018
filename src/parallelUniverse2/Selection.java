@@ -6,6 +6,7 @@ package parallelUniverse2;
 public class Selection {
 	public static  char[][] selectParents(char[][] generation,int[] fitness,int populationSize,int chromoLength,int problemCode){
 	//	System.out.println("selection universe 3");
+		
 		generation=sort(fitness,generation,chromoLength);
 		
 //		
@@ -36,6 +37,7 @@ public class Selection {
 		}
 		
 		fitness=ChromosomeRules.getPopulationFitness(problemCode, intermediateGeneration);
+		//System.out.println(fitness);
 		intermediateGeneration=sort(fitness,intermediateGeneration,chromoLength);
 
 	return intermediateGeneration;

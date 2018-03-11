@@ -1,7 +1,7 @@
 package parallelUniverse1;
 
-import problem_TraveligSalsemen.FirstGeneration;
-import problem_TraveligSalsemen.Fitness;
+import problem_TraveligSalsemen.FirstGeneration1;
+import problem_TraveligSalsemen.Fitness1;
 import problem_TraveligSalsemen.Problem1Rules;
 /*
  * PROBLEM CODE :              PROBLEM NAME
@@ -10,7 +10,7 @@ import problem_TraveligSalsemen.Problem1Rules;
 public class ChromosomeRules {
 	public static char[][] getNewFirstGeneration(int problemCode){
 		if(problemCode==1) {
-			return FirstGeneration.getFirstGeneration();
+			return FirstGeneration1.getFirstGeneration();
 		}
 		return null;
 	}
@@ -27,12 +27,12 @@ public class ChromosomeRules {
 	}
 	public static int getChromoFitness(int problemCode,char[] chromo) {
 		if(problemCode==1) 
-			return Fitness.calculateFitness(chromo);
+			return Fitness1.calculateFitness(chromo);
 		return 0;
 	}
 	public static int[] getPopulationFitness(int problemCode,char[][] population) {
 		if(problemCode==1) 
-			return Fitness.getFitness(population);
+			return Fitness1.getFitness(population);
 		return null;
 	}
 	public static int checkMutation(int problemCode) {

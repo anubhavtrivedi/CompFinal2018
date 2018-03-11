@@ -1,6 +1,6 @@
 package problem_TraveligSalsemen;
 
-public class FirstGeneration {
+public class FirstGeneration1 {
 	public static int populationSize = 150;
 	public static int chromLength = 13;
 	public static char[][] getFirstGeneration() {

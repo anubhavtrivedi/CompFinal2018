@@ -1,10 +1,10 @@
-package problem_TraveligSalsemen;
+package problem_PathFInder;
 
 import java.util.ArrayList;
 
-import parallelUniverse1.RunUniverse1;
 import parallelUniverse2.RunUniverse2;
 import parallelUniverse3.RunUniverse3;
+import parallelUniverse4.RunUniverse4;
 
 
 public class RunProblem {
@@ -13,17 +13,21 @@ public class RunProblem {
 	static int[] fitnessVal;
 	static ArrayList<String> archive=new ArrayList<>();
 	public static void main(String[] args) {
+		
 		char[] solution=null;
 		for(int i=0;i<50;i++) {
 			
 		System.out.println(i);
-		char[][] firstGeneration=FirstGeneration1.getFirstGeneration();
+		char[][] firstGeneration=FirstGeneration2.getFirstGeneration();
+		
 		/*
 		 * calculating fitness of the current generation
 		 */
-		fitnessVal=Fitness1.getFitness(firstGeneration);
-		 solution=RunUniverse2.runUniverse(firstGeneration, fitnessVal, FirstGeneration1.populationSize, PathGraph.chromoLength, Chromosome.listofAllValues(),1);
-		 archive.add(new String(solution)+" "+Fitness1.calculateFitness(solution));
+		fitnessVal=Fitness2.getFitness(firstGeneration);
+	
+		 solution=RunUniverse4.runUniverse(firstGeneration, fitnessVal, FirstGeneration2.populationSize, FirstGeneration2.chromoLength, Chromosome.listofAllValues(),2);
+		
+		 archive.add(new String(solution)+" "+Fitness2.calculateFitness(solution));
 		
 		}	
 		String[] split;
@@ -37,7 +41,8 @@ public class RunProblem {
 				 solution=split[0].toCharArray();
 			 }
 		}
-		System.out.println(print(solution)+"  "+Fitness1.calculateFitness(solution)+" we have obtained solution");
+		//System.out.println(print(solution)+"  "+Fitness2.calculateFitness(solution)+" we have obtained solution");
+		System.out.println(Fitness2.calculateCoordinates(solution));
 	}
 	static String print(char[] solution) {
 		String chromosome="";

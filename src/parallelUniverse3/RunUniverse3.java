@@ -2,7 +2,8 @@ package parallelUniverse3;
 
 import java.util.ArrayList;
 
-import problem_TraveligSalsemen.Fitness;
+import problem_PathFInder.Fitness2;
+import problem_TraveligSalsemen.Fitness1;
 
 public class RunUniverse3 {
 	
@@ -13,16 +14,18 @@ public class RunUniverse3 {
 		 int solutionCost=99999999;
 		int solutionGeneration=0;
 		 int localOptimal=0;
-		System.out.println(RunUniverse3.print(generation[3]));
+		//System.out.println(RunUniverse3.print(generation[3]));
 		String[] split;
 		int val=99999999;
 		System.out.println("rununiverse");
-		for (int i = 0; i < 1000; i++) {
-			// System.out.println("run "+i);
+		for (int i = 0; i < 10; i++) {
+			// System.out.println("1");
 
 			generation = NextGeneration.getNextGeneration(generation, fitnessVal, populationSize, chromoLength,
 					 listOfValues, problemCode);
+			// System.out.println("2");
 			fitnessVal = ChromosomeRules.getPopulationFitness(problemCode, generation);
+			// System.out.println("3");
 			if(solutionCost>fitnessVal[0]) {
 				localOptimal=0;
 			currentBest = generation[0];
@@ -59,7 +62,7 @@ public class RunUniverse3 {
 			 }
 		}
 		
-		System.out.println(print(currentBest)+"  "+Fitness.calculateFitness(currentBest)+" generation : "+solutionGeneration);
+		System.out.println(print(currentBest)+"  "+ChromosomeRules.getChromoFitness(problemCode,currentBest)+" generation : "+solutionGeneration);
 		return currentBest;
 	}
 
