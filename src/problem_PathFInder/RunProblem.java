@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import parallelUniverse2.RunUniverse2;
 import parallelUniverse3.RunUniverse3;
 import parallelUniverse4.RunUniverse4;
+import parallelUniverse3.RunUniverse3;
 
 
 public class RunProblem {
@@ -26,17 +27,17 @@ public class RunProblem {
 		fitnessVal=Fitness2.getFitness(firstGeneration);
 	
 		 solution=RunUniverse4.runUniverse(firstGeneration, fitnessVal, FirstGeneration2.populationSize, FirstGeneration2.chromoLength, Chromosome.listofAllValues(),2);
-		
+		System.out.println("Coordinates :"+Fitness2.calculateCoordinates(solution)+" fitness :"+Fitness2.calculateFitness(solution));
 		 archive.add(new String(solution)+" "+Fitness2.calculateFitness(solution));
 		
 		}	
 		String[] split;
-		int val=999999;
+		int val=0;
 		for(String c:archive) {
 			
 			 split=c.split(" ");
 
-			 if(val>Integer.parseInt(split[1])) {
+			 if(val<Integer.parseInt(split[1])) {
 				 val=Integer.parseInt(split[1]);
 				 solution=split[0].toCharArray();
 			 }

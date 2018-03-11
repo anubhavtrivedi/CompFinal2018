@@ -27,7 +27,7 @@ public class Crossover {
 	}
 
 	/*
-	 * keeping the first half fixed, adjusting the later for no repletion.
+	 * crossing over the blocks of 5 , multiple blocks
 	 */
 
 	public static char[] noRepetionNoChromoRuleCrossOver(char[] parent1, char[] parent2, int problemCode) {
@@ -98,13 +98,20 @@ public class Crossover {
 
 	public static char[] repetionAllowedCrossOver(char[] parent1, char[] parent2, int problemCode) {
 
-		int crossOverPoint = parent1.length / 2;
-		for (int i = 0; i < parent1.length; i++) {
-			if (i < crossOverPoint)
-				continue;
+		int crossOverPoint =(int)(Math.random()*100)%(parent1.length%7);
+		int flag=0;
+		
+		
+		for (int i = crossOverPoint; i < parent1.length; i++) {
+			if (flag >= 0)
 			parent1[i] = parent2[i];
+			if(flag==5)
+				flag=-6;
+			flag++;
 		}
 
+		
+		
 		return parent1;
 	}
 

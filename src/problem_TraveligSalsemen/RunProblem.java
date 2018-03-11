@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import parallelUniverse1.RunUniverse1;
 import parallelUniverse2.RunUniverse2;
 import parallelUniverse3.RunUniverse3;
+import parallelUniverse3.RunUniverse3;
 
 
 public class RunProblem {
@@ -22,17 +23,17 @@ public class RunProblem {
 		 * calculating fitness of the current generation
 		 */
 		fitnessVal=Fitness1.getFitness(firstGeneration);
-		 solution=RunUniverse2.runUniverse(firstGeneration, fitnessVal, FirstGeneration1.populationSize, PathGraph.chromoLength, Chromosome.listofAllValues(),1);
+		 solution=RunUniverse3.runUniverse(firstGeneration, fitnessVal, FirstGeneration1.populationSize, PathGraph.chromoLength, Chromosome.listofAllValues(),1);
 		 archive.add(new String(solution)+" "+Fitness1.calculateFitness(solution));
 		
 		}	
 		String[] split;
-		int val=999999;
+		int val=0;
 		for(String c:archive) {
 			
 			 split=c.split(" ");
 
-			 if(val>Integer.parseInt(split[1])) {
+			 if(val<Integer.parseInt(split[1])) {
 				 val=Integer.parseInt(split[1]);
 				 solution=split[0].toCharArray();
 			 }

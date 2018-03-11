@@ -18,7 +18,7 @@ public class Fitness1 {
 				destination = Integer.parseInt("" + chromo[i + 1]);
 			cost += PathGraph.graph[source][destination];
 		}
-		return cost;
+		return 1012-cost;
 	}
 
 	public static int[] getFitness(char[][] population) {

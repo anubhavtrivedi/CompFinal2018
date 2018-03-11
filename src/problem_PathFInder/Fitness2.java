@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Fitness2 {
 	public static String calculateCoordinates(char[] chromo) {
 		int[][] grid = Grid.getGrid();
-		int solutionCost=10000;
-		int cost = 0,x=1,y=1;
+	
+		int x=1,y=1;
 		for (char move : chromo) {
 			if(grid[x][y]==10)
 				return ""+100+""+100;
@@ -31,7 +31,7 @@ public class Fitness2 {
 	public static int calculateFitness(char[] chromo) {
 		
 		int[][] grid = Grid.getGrid();
-		int solutionCost=10000;
+		int solutionFitness=0;
 		int cost = 0,x=1,y=1;
 		for (char move : chromo) {
 			if(grid[x][y]==10)
@@ -52,8 +52,8 @@ public class Fitness2 {
 				y++;
 			}
 		}
-		cost=solutionCost-x*(x%10)-y*(y%10);
-		return cost;
+		solutionFitness=x*(x%10)+y*(y%10);
+		return solutionFitness;
 	}
 
 	public static int[] getFitness(char[][] population) {
