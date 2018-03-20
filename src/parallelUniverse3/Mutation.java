@@ -23,7 +23,6 @@ public class Mutation {
 	private static char[] mutateRepetionNoChromoRule(char[] chromo, ArrayList<Character> setOfValues) {
 		int noOfMutation = (int) (chromo.length / 10);
 		int mutationPoint,index;
-		char search;
 		while (noOfMutation > 0) {
 			mutationPoint = (int) ((Math.random() * 10000) % chromo.length);
 			index=(int) ((Math.random() * 100) % setOfValues.size());

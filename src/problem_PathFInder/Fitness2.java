@@ -6,11 +6,11 @@ public class Fitness2 {
 	public static String calculateCoordinates(char[] chromo) {
 		int[][] grid = Grid.getGrid();
 	
-		int x=1,y=1;
+		int x=10,y=10;
 		for (char move : chromo) {
-			if(grid[x][y]==10)
+			if(grid[y][x]==5)
 				return ""+100+""+100;
-			if(grid[x][y]==1||grid[x][y]==2) {
+			if(grid[y][x]==1||grid[y][x]==2) {
 				break;
 			}
 			if (move == 'R') {
@@ -32,11 +32,11 @@ public class Fitness2 {
 		
 		int[][] grid = Grid.getGrid();
 		int solutionFitness=0;
-		int cost = 0,x=1,y=1;
+		int cost = 0,x=10,y=10;
 		for (char move : chromo) {
-			if(grid[x][y]==10)
+			if(grid[y][x]==5)
 				return 0;
-			if(grid[x][y]==1||grid[x][y]==2) {
+			if(grid[y][x]==1||grid[y][x]==2) {
 				break;
 			}
 			if (move == 'R') {
@@ -52,7 +52,7 @@ public class Fitness2 {
 				y++;
 			}
 		}
-		solutionFitness=x*(x%10)+y*(y%10);
+		solutionFitness=(x+y)*(x+y)/10;
 		return solutionFitness;
 	}
 

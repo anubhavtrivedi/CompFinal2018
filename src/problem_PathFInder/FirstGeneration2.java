@@ -9,8 +9,7 @@ public class FirstGeneration2 {
 		//System.out.println("firstGeneration");
 		char[][] firstGeneration = new char[populationSize][chromoLength];
 		ArrayList<Character> listOfValues=Chromosome.listofAllValues();
-		int val;
-		String temp;
+	
 		for (int i = 0; i < populationSize; i++) {
 			for (int j= 0; j< chromoLength; j++) {
 			firstGeneration[i][j]=listOfValues.get((int)(Math.random()*100)%listOfValues.size());

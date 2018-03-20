@@ -1,4 +1,4 @@
-package parallelUniverse4;
+package parallelUniverse5;
 
 //random one point cross over
 public class Crossover {
@@ -27,7 +27,7 @@ public class Crossover {
 	}
 
 	/*
-	 * crossing over the blocks of 5 , multiple blocks
+	 * keeping the first half fixed, adjusting the later for no repletion.
 	 */
 
 	public static char[] noRepetionNoChromoRuleCrossOver(char[] parent1, char[] parent2, int problemCode) {
@@ -59,13 +59,13 @@ public class Crossover {
 				counter = 0;
 				for (int x : check) {
 					if (x == 0) {
-						if (counter == 10) {
-							parent1[i] = 'x';
+						if(counter==10) {
+							parent1[i] ='x';
 							check[counter] = 1;
 							break;
 						}
-						if (counter == 11) {
-							parent1[i] = 'y';
+						if(counter==11) {
+							parent1[i] ='y';
 							check[counter] = 1;
 							break;
 						}
@@ -97,36 +97,25 @@ public class Crossover {
 	}
 
 	public static char[] repetionAllowedCrossOver(char[] parent1, char[] parent2, int problemCode) {
-		//
-		int crossOverPoint = (int) (Math.random() * 100) % (parent1.length % 7);
-		//System.out.println(crossOverPoint);
-		int flag = 0;
 
-		for (int i = crossOverPoint; i < parent1.length; i++) {
-			//if (flag >= 0)
-				parent1[i] = parent2[i];
-			//if (flag == 5)
-			//	flag = -6;
-			//flag++;
+		int crossOverPoint = parent1.length / 2;
+		for (int i = 0; i < parent1.length; i++) {
+			if (i < crossOverPoint)
+				continue;
+			parent1[i] = parent2[i];
 		}
-	RunUniverse4.print(parent2);
+
 		return parent1;
 	}
 
 	public static char[][] getCrossOver(char[][] generation, char[][] parents, int populationSize, int problemCode) {
 		int counter = 0, parent1, parent2;
-	//	System.out.println(RunUniverse4.leastFit+"aavgg");
 		while (counter < populationSize) {
+			parent1 = (int) ((Math.random() * 100) % populationSize);
+			parent2 = (int) ((Math.random() * 100) % populationSize);
 
-			parent1 = (int) ((Math.random() * 1000) % populationSize);
-			parent2 = (int) ((Math.random() * 1000) % populationSize);
-			char[] ofspring = crossOver(parents[parent1], parents[parent2], problemCode);
-			//if (ChromosomeRules.getChromoFitness(problemCode, ofspring) > RunUniverse4.leastFit) 
-			{
-				generation[counter] = ofspring;
-			
-				counter++;
-			}
+			generation[counter] = crossOver(parents[parent1], parents[parent2], problemCode);
+			counter++;
 		}
 
 		return generation;

@@ -1,7 +1,6 @@
-package parallelUniverse4;
+package parallelUniverse5;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 // mutation is 10%
 /*
@@ -22,17 +21,13 @@ public class Mutation {
 	}
 	
 	private static char[] mutateRepetionNoChromoRule(char[] chromo, ArrayList<Character> setOfValues) {
-		int noOfMutation = (int) (chromo.length / 20);
+		int noOfMutation = (int) (chromo.length / 10);
 		int mutationPoint,index;
-//		System.out.println(RunUniverse4.print(generation[3]));
-//		Scanner in=new Scanner(System.in);
-//		in.nextInt();
 		
 		while (noOfMutation > 0) {
-			mutationPoint = (int) ((Math.random() * 100000) % chromo.length);
+			mutationPoint = (int) ((Math.random() * 10000) % chromo.length);
 			index=(int) ((Math.random() * 100) % setOfValues.size());
 			chromo[mutationPoint]=setOfValues.get(index);
-		//	System.out.println(setOfValues.get(index));
 			noOfMutation--;
 		}
 		return chromo;
@@ -44,10 +39,10 @@ public class Mutation {
 		int mutationPoint,index;
 		char search;
 		while (noOfMutation > 0) {
-			mutationPoint = (int) ((Math.random() * 100000) % chromo.length);
+			mutationPoint = (int) ((Math.random() * 10000) % chromo.length);
 			if(mutationPoint==0)
 				continue;
-			index=(int) ((Math.random() * 100) % setOfValues.size());
+			index=(int) ((Math.random() * 10000) % setOfValues.size());
 			search=chromo[mutationPoint];
 			chromo[mutationPoint]=setOfValues.get(index);
 			index=0;

@@ -44,7 +44,7 @@ public class Grid {
 			
 		
 		grid[1][1]=9;
-		grid[100][100]=10;
+		grid[99][99]=5;
 	}
 	static public int[][] getGrid(){
 		return grid;

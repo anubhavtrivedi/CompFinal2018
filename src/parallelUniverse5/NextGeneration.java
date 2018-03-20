@@ -1,4 +1,4 @@
-package parallelUniverse4;
+package parallelUniverse5;
 
 import java.util.ArrayList;
 
@@ -19,18 +19,17 @@ public class NextGeneration {
 			generation[mutationPoint] = Mutation.mutate(generation[mutationPoint], listOfValues, problemCode);
 			noOfMutation--;
 		}
-		
 		/*
 		 * selecting the parents to produce off spring
 		 */
 		// System.out.println(fitness);
 		char[][] intermediateGeneration = Selection.selectParents(generation, fitness, populationSize, chromoLength,
 				problemCode);
-		
+
 
 		char[][] nextGeneration = Crossover.getCrossOver(generation, intermediateGeneration, populationSize,
 				problemCode);
-		
+
 		/*
 		 * returning the new generation of the population
 		 */
