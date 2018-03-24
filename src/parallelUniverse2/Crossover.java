@@ -26,21 +26,19 @@ public class Crossover {
 		return null;
 	}
 
-
-
 	public static char[] noRepetionNoChromoRuleCrossOver(char[] parent1, char[] parent2, int problemCode) {
 		/*
-		 *  keeping the second half fixed, adjusting the first for no repletion.
+		 * keeping the second half fixed, adjusting the first for no repletion.
 		 */
-		
+
 		int crossOverPoint = parent1.length / 2, temp, counter = 0;
 		// System.out.println(RunUniverse3.print(parent1)+" dfg
 		// "+RunUniverse3.print(parent2));
 		char[] ch;
 		int[] check = new int[parent1.length];
-		
-		 {
-			for (int i = parent1.length-1; i >=0; i--) {
+
+		{
+			for (int i = parent1.length - 1; i >= 0; i--) {
 				if (i > crossOverPoint) {
 					if (parent1[i] == 'x')
 						temp = 10;
@@ -61,13 +59,13 @@ public class Crossover {
 					counter = 0;
 					for (int x : check) {
 						if (x == 0) {
-							if(counter==10) {
-								parent1[i] ='x';
+							if (counter == 10) {
+								parent1[i] = 'x';
 								check[counter] = 1;
 								break;
 							}
-							if(counter==11) {
-								parent1[i] ='y';
+							if (counter == 11) {
+								parent1[i] = 'y';
 								check[counter] = 1;
 								break;
 							}
@@ -90,7 +88,7 @@ public class Crossover {
 				}
 
 			}
-			
+
 		}
 		// problem specific
 		if (problemCode == 1) {

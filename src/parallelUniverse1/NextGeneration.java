@@ -7,9 +7,8 @@ public class NextGeneration {
 
 	public static char[][] getNextGeneration(char[][] generation, int[] fitness, int populationSize, int chromoLength,
 			ArrayList<Character> listOfValues, int problemCode) {
-		//System.out.println("nextGeneration");
-		
-		
+		// System.out.println("nextGeneration");
+
 		int noOfMutation = (int) (populationSize / 10);
 		int mutationPoint;
 		while (noOfMutation > 0) {
@@ -21,7 +20,7 @@ public class NextGeneration {
 		 * selecting the parents to produce off spring
 		 */
 		char[][] intermediateGeneration = Selection.selectParents(generation, fitness, populationSize, chromoLength);
-		
+
 		/*
 		 * best Gene of this generation
 		 */
@@ -32,14 +31,7 @@ public class NextGeneration {
 		 */
 		char[][] nextGeneration = Crossover.getCrossOver(generation, intermediateGeneration, populationSize,
 				problemCode);
-		
-		
-	
-		
-		
-		
-		
-		
+
 		/*
 		 * returning the new generation of the population
 		 */
