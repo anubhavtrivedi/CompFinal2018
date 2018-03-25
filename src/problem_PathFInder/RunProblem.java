@@ -71,30 +71,30 @@ public class RunProblem {
 			for (char move : solution) {
 				if (grid[y][x] == 10)
 					break;
-				if (grid[y][x] == 1 || grid[y][x] == 2) 
+				if (grid[y][x] == 1 || grid[y][x] == 2)
 					break;
 				if (move == 'R') {
 					x++;
-					if (grid[y][x] == 1 || grid[y][x] == 2) 
+					if (grid[y][x] == 1 || grid[y][x] == 2)
 						break;
 					grid[y][x] = 3;
-					
+
 				}
 				if (move == 'L') {
 					x--;
-					if (grid[y][x] == 1 || grid[y][x] == 2) 
+					if (grid[y][x] == 1 || grid[y][x] == 2)
 						break;
 					grid[y][x] = 3;
 				}
 				if (move == 'D') {
 					y--;
-					if (grid[y][x] == 1 || grid[y][x] == 2) 
+					if (grid[y][x] == 1 || grid[y][x] == 2)
 						break;
 					grid[y][x] = 3;
 				}
 				if (move == 'U') {
 					y++;
-					if (grid[y][x] == 1 || grid[y][x] == 2) 
+					if (grid[y][x] == 1 || grid[y][x] == 2)
 						break;
 					grid[y][x] = 3;
 				}
@@ -104,7 +104,7 @@ public class RunProblem {
 				for (int cc : row) {
 					output += cc;
 				}
-				b.write(output+System.lineSeparator());
+				b.write(output + System.lineSeparator());
 			}
 		} catch (IOException e) {
 
